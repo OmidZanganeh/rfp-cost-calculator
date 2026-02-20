@@ -68,10 +68,16 @@
   gap: 20px;
 }
 
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .nameInput {
-  width: 100%;
+  flex: 1;
   background: var(--paper-light);
-  border: 2px solid var(--border-dark);
+  border: 2px solid var(--accent-blue);
   border-radius: 8px;
   padding: 12px 16px;
   font-family: var(--font-mono);
@@ -82,8 +88,19 @@
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .nameInput:focus {
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+}
+
+.nameHint {
+  font-size: 0.8em;
+  color: var(--accent-blue);
+  white-space: nowrap;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
 }
 
 /* ── Game cards ── */
@@ -114,9 +131,14 @@
   transform: translateY(-2px);
 }
 
-.gameCard:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
+.gameCardLocked {
+  opacity: 0.55;
+  cursor: text;
+}
+.gameCardLocked:hover {
+  border-color: var(--accent-blue) !important;
+  box-shadow: none !important;
+  transform: none !important;
 }
 
 .gameEmoji {

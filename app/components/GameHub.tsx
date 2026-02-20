@@ -115,26 +115,39 @@ export default function GameHub({ onClose }: { onClose: () => void }) {
         {/* ── LOBBY ── */}
         {screen === 'lobby' && (
           <div className={styles.lobby}>
-            <input
-              className={styles.nameInput}
-              placeholder="Enter your name to play…"
-              value={playerName}
-              onChange={e => setPlayerName(e.target.value)}
-              maxLength={20}
-              autoFocus
-            />
+            <div className={styles.nameRow}>
+              <input
+                className={styles.nameInput}
+                placeholder="Type your name here…"
+                value={playerName}
+                onChange={e => setPlayerName(e.target.value)}
+                maxLength={20}
+                autoFocus
+              />
+              {!playerName.trim() && (
+                <span className={styles.nameHint}>← enter your name first</span>
+              )}
+            </div>
 
             <div className={styles.gameCards}>
               {GAMES.map(g => (
                 <button
                   key={g.id}
-                  className={styles.gameCard}
-                  onClick={() => startGame(g.id)}
-                  disabled={!playerName.trim()}
+                  className={`${styles.gameCard} ${!playerName.trim() ? styles.gameCardLocked : ''}`}
+                  onClick={() => {
+                    if (!playerName.trim()) {
+                      const input = document.querySelector('input[maxlength="20"]') as HTMLInputElement;
+                      input?.focus();
+                    } else {
+                      startGame(g.id);
+                    }
+                  }}
                 >
-                  <span className={styles.gameEmoji}>{g.emoji}</span>
+                  <span className={styles.gameEmoji}>{!playerName.trim() ? '🔒' : g.emoji}</span>
                   <span className={styles.gameCardTitle}>{g.title}</span>
-                  <span className={styles.gameCardDesc}>{g.desc}</span>
+                  <span className={styles.gameCardDesc}>
+                    {!playerName.trim() ? 'Enter your name to unlock' : g.desc}
+                  </span>
                 </button>
               ))}
             </div>
