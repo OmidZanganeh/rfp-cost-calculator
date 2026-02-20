@@ -11,7 +11,7 @@ const WORDS = [
   'csharp', 'deeplearn', 'toolbox', 'workflow', 'kernel', 'pixel',
 ];
 
-const COLS = 10;
+const COLS = 6;
 const TICK_MS = 1400;
 const SPEED_UP = 0.93;
 

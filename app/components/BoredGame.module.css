@@ -118,20 +118,20 @@
 
 .row {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  min-height: 22px;
+  grid-template-columns: repeat(6, 1fr);
+  min-height: 24px;
 }
 
 .cell {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 1px 2px;
-  overflow: hidden;
+  padding: 1px 4px;
+  overflow: visible;
 }
 
 .word {
-  font-size: 0.72em;
+  font-size: 0.82em;
   font-weight: 600;
   color: var(--accent-blue);
   background: rgba(59, 130, 246, 0.08);
