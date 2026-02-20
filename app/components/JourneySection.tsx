@@ -31,26 +31,32 @@ export default function JourneySection() {
   return (
     <section className={styles.section}>
       <h2 className={styles.title}>My Journey</h2>
+
       <div className={styles.track}>
         {stops.map((stop, i) => (
-          <div key={stop.city} className={styles.stop}>
-            <div className={styles.pin} style={{ borderColor: stop.color }}>
-              <div className={styles.pinDot} style={{ background: stop.color }} />
-            </div>
-            {i < stops.length - 1 && (
-              <div className={styles.line}>
-                <svg viewBox="0 0 120 8" preserveAspectRatio="none">
-                  <path
-                    d="M0,4 Q30,1 60,4 T120,4"
-                    stroke="var(--border-dark)"
-                    strokeWidth="1.5"
-                    strokeDasharray="4 3"
-                    fill="none"
-                  />
-                </svg>
-                <span className={styles.arrow}>✈</span>
+          <div key={stop.city} className={`${styles.stop} ${i < stops.length - 1 ? styles.stopWithLine : ''}`}>
+            {/* Pin row */}
+            <div className={styles.pinRow}>
+              <div className={styles.pin} style={{ borderColor: stop.color }}>
+                <div className={styles.pinDot} style={{ background: stop.color }} />
               </div>
-            )}
+              {i < stops.length - 1 && (
+                <div className={styles.line}>
+                  <svg viewBox="0 0 100 8" preserveAspectRatio="none" width="100%" height="100%">
+                    <path
+                      d="M0,4 Q25,1 50,4 T100,4"
+                      stroke="var(--border-dark)"
+                      strokeWidth="1.5"
+                      strokeDasharray="4 3"
+                      fill="none"
+                    />
+                  </svg>
+                  <span className={styles.plane}>✈</span>
+                </div>
+              )}
+            </div>
+
+            {/* Info below pin — normal flow */}
             <div className={styles.info}>
               <span className={styles.city}>{stop.city}</span>
               <span className={styles.country}>{stop.country}</span>
