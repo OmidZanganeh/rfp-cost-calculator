@@ -12,17 +12,17 @@
 }
 
 .bubblesCompact {
-  width: 489px !important;
-  height: 489px !important;
+  width: 340px !important;
+  height: 340px !important;
   margin: 0 auto;
 }
 
 .centerCompact {
-  width: 106px !important;
-  height: 106px !important;
-  left: calc(50% - 53px) !important;
-  top: calc(50% - 53px) !important;
-  font-size: 0.95em !important;
+  width: 74px !important;
+  height: 74px !important;
+  left: calc(50% - 37px) !important;
+  top: calc(50% - 37px) !important;
+  font-size: 0.82em !important;
 }
 
 .compact .donutWrap {
@@ -48,11 +48,11 @@
 }
 
 .compact .hobbyEmoji {
-  font-size: 2.07em;
+  font-size: 1.45em;
 }
 
 .compact .hobbyLabel {
-  font-size: 0.98em;
+  font-size: 0.7em;
 }
 
 .sectionTitle {
