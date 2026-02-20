@@ -21,8 +21,8 @@ const LIFE = [
 const R_FULL = 112;
 const CX_FULL = 160; const CY_FULL = 160;
 
-const R_COMPACT = 118;
-const CX_COMPACT = 170; const CY_COMPACT = 170;
+const R_COMPACT = 148;
+const CX_COMPACT = 213; const CY_COMPACT = 213;
 
 function toRad(deg: number) { return (deg * Math.PI) / 180; }
 
@@ -42,7 +42,7 @@ export default function HobbiesSection({ compact = false }: Props) {
   const R = compact ? R_COMPACT : R_FULL;
   const CX = compact ? CX_COMPACT : CX_FULL;
   const CY = compact ? CY_COMPACT : CY_FULL;
-  const bubbleScale = compact ? 0.95 : 1;
+  const bubbleScale = compact ? 1 : 1; /* full size (25% bigger than 0.95) */
   const bubbleSizes = HOBBIES.map(h => Math.round(h.size * bubbleScale));
 
   return (
@@ -55,7 +55,7 @@ export default function HobbiesSection({ compact = false }: Props) {
           <p className={styles.subLabel}>Hobbies</p>
           <div className={`${styles.bubblesContainer} ${compact ? styles.bubblesCompact : ''}`}>
             {/* SVG connector lines */}
-            <svg className={styles.lines} viewBox={compact ? '0 0 340 340' : '0 0 320 320'}>
+            <svg className={styles.lines} viewBox={compact ? '0 0 426 426' : '0 0 320 320'}>
               {HOBBIES.map((h, i) => {
                 const cx = CX + R * Math.cos(toRad(h.angle));
                 const cy = CY + R * Math.sin(toRad(h.angle));
