@@ -12,7 +12,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--text-muted);
+  color: var(--text-primary);
   margin-bottom: 36px;
   padding-bottom: 8px;
   border-bottom: 2px solid var(--border-dark);
@@ -87,7 +87,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   font-size: 0.9em;
-  color: var(--text-muted);
+  color: var(--text-primary);
   background: var(--paper-light);
   padding: 0 4px;
   line-height: 1;
@@ -110,7 +110,7 @@
 
 .country {
   font-size: 0.76em;
-  color: var(--text-muted);
+  color: var(--text-primary);
 }
 
 .years {
@@ -120,7 +120,7 @@
   border: 1px solid var(--border-light);
   padding: 1px 8px;
   border-radius: 10px;
-  color: var(--text-muted);
+  color: var(--text-primary);
   margin-top: 4px;
   width: fit-content;
 }
@@ -135,7 +135,7 @@
 
 .org {
   font-size: 0.76em;
-  color: var(--text-muted);
+  color: var(--text-primary);
 }
 
 /* ── Mobile: vertical stack ── */
