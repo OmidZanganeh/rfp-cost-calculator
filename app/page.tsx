@@ -314,12 +314,12 @@ export default function Resume() {
       </section>
 
       {/* ══════════════════════════════════════
-          GITHUB ACTIVITY
+          GITHUB ACTIVITY (hidden — uncomment to restore)
       ══════════════════════════════════════ */}
-      <section className={styles.githubSection}>
+      {/* <section className={styles.githubSection}>
         <h2 className={styles.sectionTitle}>GitHub Activity</h2>
         <GithubHeatmap username="OmidZanganeh" />
-      </section>
+      </section> */}
 
       {/* ══════════════════════════════════════
           JOURNEY MAP
