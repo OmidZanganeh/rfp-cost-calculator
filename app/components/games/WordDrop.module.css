@@ -1,0 +1,212 @@
+.startPane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.desc {
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.startBtn {
+  background: var(--paper-dark);
+  border: 2px solid var(--border-dark);
+  border-radius: 6px;
+  padding: 12px 28px;
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--border-dark);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.startBtn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--border-dark);
+}
+
+/* ── Playing layout ── */
+.playingLayout {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.gridWrap { flex: 1; min-width: 0; }
+
+.hud {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.85em;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.comboTag {
+  background: var(--accent-orange);
+  color: white;
+  font-size: 0.75em;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.flash {
+  text-align: center;
+  font-size: 0.88em;
+  font-weight: 600;
+  color: var(--accent-green);
+  height: 20px;
+  margin-bottom: 4px;
+  animation: fadeFlash 0.7s ease forwards;
+}
+
+@keyframes fadeFlash {
+  0%   { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-6px); }
+}
+
+.grid {
+  background: var(--paper-light);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 8px 6px 0;
+  margin-bottom: 10px;
+  min-height: 220px;
+  position: relative;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  min-height: 24px;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1px 4px;
+  overflow: visible;
+}
+
+.word {
+  font-size: 0.82em;
+  font-weight: 600;
+  color: var(--accent-blue);
+  background: rgba(59,130,246,0.08);
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 3px;
+  padding: 1px 5px;
+  white-space: nowrap;
+}
+
+.warn {
+  color: var(--accent-orange);
+  background: rgba(249,115,22,0.08);
+  border-color: rgba(249,115,22,0.25);
+}
+
+.danger {
+  color: #dc2626;
+  background: rgba(220,38,38,0.1);
+  border-color: rgba(220,38,38,0.3);
+  animation: shake 0.3s ease infinite alternate;
+}
+
+@keyframes shake {
+  from { transform: translateX(-1px); }
+  to   { transform: translateX(1px); }
+}
+
+.ground {
+  height: 3px;
+  background: var(--border-dark);
+  border-radius: 2px;
+  margin-top: 2px;
+}
+
+.input {
+  width: 100%;
+  background: var(--paper-light);
+  border: 2px solid var(--border-dark);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 1em;
+  color: var(--text-primary);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+}
+
+/* ── Side leaderboard ── */
+.sideLeader {
+  width: 150px;
+  flex-shrink: 0;
+  background: var(--paper-light);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sideLeaderTitle {
+  font-size: 0.76em;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 6px;
+}
+
+.sideLeaderEmpty {
+  font-size: 0.72em;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.sideLeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.74em;
+  color: var(--text-secondary);
+  gap: 4px;
+}
+
+.sideLeaderRow span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 85px;
+}
+
+.sideLeaderScore {
+  font-weight: 700;
+  color: var(--accent-blue);
+  flex-shrink: 0;
+}
+
+.sideLeaderHint {
+  font-size: 0.68em;
+  color: #dc2626;
+  margin: 4px 0 0;
+  line-height: 1.4;
+  font-weight: 600;
+}

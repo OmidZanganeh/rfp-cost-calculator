@@ -1,0 +1,195 @@
+.startPane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.desc {
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.startBtn {
+  background: var(--paper-dark);
+  border: 2px solid var(--border-dark);
+  border-radius: 6px;
+  padding: 12px 28px;
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--border-dark);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.startBtn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--border-dark);
+}
+
+.miniBoard {
+  background: var(--paper-light);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 12px 20px;
+  min-width: 200px;
+  text-align: left;
+}
+
+.miniBoardTitle {
+  font-size: 0.78em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.miniBoardRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82em;
+  color: var(--text-secondary);
+  padding: 3px 0;
+}
+
+/* ── Game ── */
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gameHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.roundLabel {
+  font-size: 0.85em;
+  color: var(--text-secondary);
+}
+
+.wpmBadge {
+  font-size: 0.95em;
+  font-weight: 700;
+  color: var(--accent-blue);
+}
+
+.progressBar {
+  height: 4px;
+  background: var(--border-light);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--accent-blue);
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+/* ── Text display ── */
+.textDisplay {
+  background: var(--paper-light);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-size: 1.05em;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+.charPending {
+  color: var(--text-muted);
+}
+
+.charDone {
+  color: var(--accent-green);
+}
+
+.charCursor {
+  color: var(--text-primary);
+  background: rgba(59, 130, 246, 0.25);
+  border-radius: 2px;
+  outline: 2px solid var(--accent-blue);
+  outline-offset: -1px;
+}
+
+/* ── Input ── */
+.input {
+  width: 100%;
+  background: var(--paper-bg);
+  border: 2px solid var(--border-dark);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 1em;
+  color: var(--text-primary);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Round result ── */
+.roundResult {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--paper-light);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 10px 16px;
+  gap: 12px;
+  animation: popIn 0.2s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.96); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.nextBtn {
+  background: var(--accent-blue);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.nextBtn:hover { opacity: 0.85; }
+
+/* ── History pills ── */
+.history {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.historyItem {
+  background: var(--paper-dark);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 0.78em;
+  color: var(--text-secondary);
+}

@@ -9,7 +9,7 @@ import DarkModeToggle from "./components/DarkModeToggle";
 import SkillBar from "./components/SkillBar";
 import JourneySection from "./components/JourneySection";
 import ContactForm from "./components/ContactForm";
-import BoredGame from "./components/BoredGame";
+import GameHub from "./components/GameHub";
 
 export default function Resume() {
   const [gameOpen, setGameOpen] = useState(false);
@@ -352,7 +352,7 @@ export default function Resume() {
       {/* ══════════════════════════════════════
           GAME MODAL
       ══════════════════════════════════════ */}
-      {gameOpen && <BoredGame onClose={() => setGameOpen(false)} />}
+      {gameOpen && <GameHub onClose={() => setGameOpen(false)} />}
 
       {/* ══════════════════════════════════════
           FOOTER
