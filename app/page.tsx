@@ -85,6 +85,78 @@ export default function Resume() {
       </div>
 
       {/* ══════════════════════════════════════
+          ABOUT ME
+      ══════════════════════════════════════ */}
+      <section className={styles.aboutSection}>
+        <h2 className={styles.sectionTitle}>About Me</h2>
+        <div className={styles.aboutBody}>
+          <p>
+            I&apos;m a GIS Associate Technician at Olsson, specializing in workflow automation, geospatial analysis,
+            and application development to solve complex spatial challenges. I work extensively with ArcGIS Pro,
+            Python, SQL, and remote sensing platforms to build high-performance tools for automating spatial
+            workflows and supporting fiber-network market analysis and design.
+          </p>
+          <p>
+            I hold a Master&apos;s in Geography with a concentration in GIS&amp;T from the University of Nebraska
+            at Omaha, graduating with a <strong>4.0 GPA</strong>. My research earned the{' '}
+            <strong>GRACA Project Award</strong> for spatiotemporal analysis of NOx emissions using TROPOMI
+            satellite data. I also taught over <strong>150 students</strong> in Human-Environment Geography labs
+            at UNO, emphasizing hands-on learning, inclusivity, and real-world applications.
+          </p>
+          <p>
+            I contributed to the <strong>Omaha Spatial Justice Project</strong> as a GIS Technician —
+            digitizing historical land parcels, reviewing legal documents, and building a geodatabase
+            identifying homes with racially restrictive covenants in Douglas County. This work deepened
+            my commitment to using GIS as a tool for social equity.
+          </p>
+          <p>
+            With a proven record of delivering scalable GIS solutions, I&apos;m passionate about bridging
+            technical expertise with practical impact — and always open to connecting with professionals
+            who share my enthusiasm for solving spatial problems.
+          </p>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          CURRENTLY WORKING ON
+      ══════════════════════════════════════ */}
+      <section className={styles.nowSection}>
+        <h2 className={styles.sectionTitle}>Currently Working On</h2>
+        <div className={styles.nowGrid}>
+          <div className={styles.nowCard}>
+            <span className={styles.nowIcon}>⚙️</span>
+            <div>
+              <p className={styles.nowCardTitle}>Workflow Automation</p>
+              <p className={styles.nowCardDesc}>
+                Building Python and C# tools that eliminate repetitive GIS tasks — turning multi-day
+                manual processes into fully automated pipelines.
+              </p>
+            </div>
+          </div>
+          <div className={styles.nowCard}>
+            <span className={styles.nowIcon}>🤖</span>
+            <div>
+              <p className={styles.nowCardTitle}>AI-Powered Spatial Solutions</p>
+              <p className={styles.nowCardDesc}>
+                Developing AI agents using Azure AI Foundry and Google AI Studio for intelligent
+                data classification, RFP sourcing, and web grounding at scale.
+              </p>
+            </div>
+          </div>
+          <div className={styles.nowCard}>
+            <span className={styles.nowIcon}>🌐</span>
+            <div>
+              <p className={styles.nowCardTitle}>Fiber Network Design Tools</p>
+              <p className={styles.nowCardDesc}>
+                Creating custom ArcGIS geoprocessing toolboxes to accelerate fiber network routing,
+                cost estimation, and strategic market analysis for telecom expansion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
           MAIN GRID
       ══════════════════════════════════════ */}
       <div className={styles.grid}>
