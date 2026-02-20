@@ -233,6 +233,12 @@ export default function Resume() {
 
             </div>
           </section>
+
+          {/* Journey Map */}
+          <JourneySection />
+
+          {/* Contact Form */}
+          <ContactForm />
         </main>
 
         {/* ── RIGHT SIDEBAR ── */}
@@ -310,24 +316,6 @@ export default function Resume() {
 
         </aside>
       </div>
-
-      {/* ══════════════════════════════════════
-          GITHUB ACTIVITY (hidden — uncomment to restore)
-      ══════════════════════════════════════ */}
-      {/* <section className={styles.githubSection}>
-        <h2 className={styles.sectionTitle}>GitHub Activity</h2>
-        <GithubHeatmap username="OmidZanganeh" />
-      </section> */}
-
-      {/* ══════════════════════════════════════
-          JOURNEY MAP
-      ══════════════════════════════════════ */}
-      <JourneySection />
-
-      {/* ══════════════════════════════════════
-          CONTACT FORM
-      ══════════════════════════════════════ */}
-      <ContactForm />
 
       {/* ══════════════════════════════════════
           GAME MODAL
