@@ -42,7 +42,7 @@ export default function HobbiesSection({ compact = false }: Props) {
   const R = compact ? R_COMPACT : R_FULL;
   const CX = compact ? CX_COMPACT : CX_FULL;
   const CY = compact ? CY_COMPACT : CY_FULL;
-  const bubbleScale = compact ? 1.19 : 1;
+  const bubbleScale = compact ? 0.95 : 1;
   const bubbleSizes = HOBBIES.map(h => Math.round(h.size * bubbleScale));
 
   return (
