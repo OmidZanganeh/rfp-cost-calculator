@@ -39,7 +39,7 @@ const WORDS = [
 ];
 
 const COLS = 6;
-const TICK_MS = 1400;
+const TICK_MS = 700;
 const SPEED_UP = 0.93;
 
 type FallingWord = { id: number; word: string; col: number; row: number };
@@ -159,7 +159,7 @@ export default function BoredGame({ onClose }: { onClose: () => void }) {
     setInput('');
     setScore(0);
     scoreRef.current = 0;
-    setLives(3);
+    setLives(1);
     setCombo(0);
     setFlash(null);
     setIsNewRecord(false);
@@ -207,7 +207,7 @@ export default function BoredGame({ onClose }: { onClose: () => void }) {
           <span className={styles.titleGame}>// GIS Word Drop</span>
           {screen === 'playing' && (
             <div className={styles.hud}>
-              <span className={styles.hudItem}>{'♥'.repeat(lives)}{'♡'.repeat(Math.max(0, 3 - lives))}</span>
+              <span className={styles.hudItem}>{lives > 0 ? '♥' : '♡'} {lives > 0 ? 'ALIVE' : 'DEAD'}</span>
               <span className={styles.hudItem}>Score: <strong>{score}</strong></span>
               {combo >= 2 && <span className={styles.comboTag}>🔥 x{combo}</span>}
             </div>
@@ -260,32 +260,50 @@ export default function BoredGame({ onClose }: { onClose: () => void }) {
         {/* ── PLAYING ── */}
         {screen === 'playing' && (
           <>
-            <div className={styles.grid}>
-              {grid.map((row, ri) => (
-                <div key={ri} className={styles.row}>
-                  {row.map((cell, ci) => (
-                    <div key={ci} className={styles.cell}>
-                      {cell && (
-                        <span className={`${styles.word} ${cell.row >= 7 ? styles.danger : cell.row >= 4 ? styles.warn : ''}`}>
-                          {cell.word}
-                        </span>
-                      )}
+            <div className={styles.playingLayout}>
+              <div className={styles.gridWrap}>
+                <div className={styles.grid}>
+                  {grid.map((row, ri) => (
+                    <div key={ri} className={styles.row}>
+                      {row.map((cell, ci) => (
+                        <div key={ci} className={styles.cell}>
+                          {cell && (
+                            <span className={`${styles.word} ${cell.row >= 7 ? styles.danger : cell.row >= 4 ? styles.warn : ''}`}>
+                              {cell.word}
+                            </span>
+                          )}
+                        </div>
+                      ))}
                     </div>
                   ))}
+                  <div className={styles.ground} />
                 </div>
-              ))}
-              <div className={styles.ground} />
+                <input
+                  ref={inputRef}
+                  className={styles.input}
+                  value={input}
+                  onChange={handleInput}
+                  placeholder="type a word..."
+                  autoComplete="off"
+                  autoCorrect="off"
+                  spellCheck={false}
+                />
+              </div>
+
+              <div className={styles.sideLeader}>
+                <p className={styles.sideLeaderTitle}>🏆 Top Scores</p>
+                {leaders.length === 0 && (
+                  <p className={styles.sideLeaderEmpty}>No scores yet</p>
+                )}
+                {leaders.map((l, i) => (
+                  <div key={i} className={styles.sideLeaderRow}>
+                    <span>{medals[i]} {l.name}</span>
+                    <span className={styles.sideLeaderScore}>{l.score}</span>
+                  </div>
+                ))}
+                <p className={styles.sideLeaderHint}>Miss one word → game over!</p>
+              </div>
             </div>
-            <input
-              ref={inputRef}
-              className={styles.input}
-              value={input}
-              onChange={handleInput}
-              placeholder="type a word..."
-              autoComplete="off"
-              autoCorrect="off"
-              spellCheck={false}
-            />
           </>
         )}
 

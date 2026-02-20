@@ -22,7 +22,7 @@
   border: 2px solid var(--border-dark);
   border-radius: 10px;
   padding: 28px 28px 24px;
-  width: min(680px, 95vw);
+  width: min(820px, 95vw);
   position: relative;
   box-shadow:
     4px 4px 0 rgba(163,159,146,0.3),
@@ -174,6 +174,77 @@
   inset: 0;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 3'%3E%3Cpath d='M0,1.5 Q5,1 10,1.5 T20,1.5 T30,1.5 T40,1.5 T50,1.5 T60,1.5 T70,1.5 T80,1.5 T90,1.5 T100,1.5' stroke='%23a39f92' stroke-width='2' fill='none'/%3E%3C/svg%3E") repeat-x;
   background-size: 200px 3px;
+}
+
+/* ── Playing layout (grid + side leaderboard) ── */
+.playingLayout {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.gridWrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.sideLeader {
+  width: 160px;
+  flex-shrink: 0;
+  background: var(--paper-light);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 12px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sideLeaderTitle {
+  font-size: 0.78em;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 6px;
+}
+
+.sideLeaderEmpty {
+  font-size: 0.72em;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.sideLeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.76em;
+  color: var(--text-secondary);
+  gap: 6px;
+}
+
+.sideLeaderRow span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 90px;
+}
+
+.sideLeaderScore {
+  font-weight: 700;
+  color: var(--accent-blue);
+  flex-shrink: 0;
+}
+
+.sideLeaderHint {
+  font-size: 0.68em;
+  color: #dc2626;
+  margin: 4px 0 0;
+  line-height: 1.4;
+  font-weight: 600;
 }
 
 /* ── Input ── */
