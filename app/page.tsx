@@ -11,7 +11,7 @@ export default function Resume() {
       <header className={styles.header}>
         <div className={styles.headerLeft}>
           <h1 className={styles.name}>Omid Zanganeh</h1>
-          <p className={styles.tagline}>GIS Associate Technician &amp; Software Developer</p>
+          <p className={styles.tagline}>GIS Associate Technician &amp; Developer</p>
           <div className={styles.contact}>
             <span className={styles.contactItem}>📍 Lincoln, Nebraska</span>
             <a className={styles.contactItem} href="tel:+15312296873">📞 +1 (531) 229-6873</a>
