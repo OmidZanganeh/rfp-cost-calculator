@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./page.module.css";
 
 const projects = [
@@ -6,19 +7,43 @@ const projects = [
     icon: "🤖",
     title: "RFP Radar",
     subtitle: "AI-Powered RFP Sourcing Tool",
-    problem: "Manual RFP searching required analysts to spend months reviewing thousands of government contracts to find relevant opportunities.",
-    solution: "Built an AI-powered pipeline using Azure AI Foundry and Google AI Studio to automate data classification, web grounding, and intelligent matching of RFPs to company capabilities.",
+    image: "/RFP.png",
+    problem: "Manual RFP searching required analysts to spend months reviewing thousands of government contracts to find relevant fiber and telecom opportunities.",
+    solution: "Built a production desktop application using Azure OpenAI (GPT-5.1) and Google AI Studio to automate web grounding, intelligent classification, and matching of RFPs to company capabilities. Features batch search, URL validation, and CSV export.",
     impact: ["Processing time reduced from months to hours", "Automated classification of thousands of contracts", "Deployed as a production tool at Olsson"],
-    tech: ["Python", "Azure AI Foundry", "Google AI Studio", "ArcGIS", "SQL Server"],
+    tech: ["Python", "Azure OpenAI", "Google AI Studio", "ArcGIS", "SQL Server"],
     color: "var(--accent-blue)",
   },
   {
+    icon: "🛩️",
+    title: "Aerial AI Object Detection",
+    subtitle: "YOLO-Based Utility Infrastructure Detection from Aerial Imagery",
+    image: "/Aerial-AI-Object-Detection.png",
+    problem: "Identifying utility poles, streetlights, and telecom infrastructure in aerial imagery required expensive manual inspection across large geographic areas.",
+    solution: "Built a desktop application that fetches high-resolution aerial tiles by coordinate, runs a custom-trained YOLO model to detect utility assets, and exports georeferenced results to ArcGIS. Supports single-point, grid, and area scanning modes.",
+    impact: ["Automated detection of utility poles and streetlights from aerial tiles", "Georeferenced export to GIS-ready formats", "Custom YOLO model trained on telecom infrastructure classes"],
+    tech: ["Python", "YOLO", "Google Maps Tile API", "ArcGIS", "OpenCV"],
+    color: "var(--accent-cyan, #06B6D4)",
+  },
+  {
+    icon: "🚶",
+    title: "Streetview AI Object Detection",
+    subtitle: "YOLO-Based Infrastructure Detection Along Street Routes",
+    image: "/Streetview-AI-Object-Detection.png",
+    problem: "Field surveys for utility poles and telecom equipment require costly in-person visits, and traditional GIS methods cannot identify specific physical assets from ground level.",
+    solution: "Built a desktop application that traverses streets using Google Street View imagery, running a custom YOLO model to detect and classify utility infrastructure. Supports line traversal, panoramic capture, and area buffering with navigation controls.",
+    impact: ["Remote field survey capability without site visits", "Automated inventory of streetside utility assets", "Configurable traversal distance and panoramic heading coverage"],
+    tech: ["Python", "YOLO", "Google Street View API", "ArcGIS", "OpenCV"],
+    color: "var(--accent-green)",
+  },
+  {
     icon: "⚙️",
-    title: "Bore Profile Generator",
-    subtitle: "Automated Boring Profile Application",
-    problem: "Generating bore profiles for fiber network directional drilling required days of manual drafting, creating bottlenecks in project timelines.",
-    solution: "Developed a fully automated desktop application in Python and C# that reads spatial data, processes elevation models, and generates production-ready bore profile drawings automatically.",
-    impact: ["Processing time cut from days to minutes", "Eliminated manual drafting errors", "Deployed across telecom engineering team at Olsson"],
+    title: "Bore Profile Automation",
+    subtitle: "Automated Directional Drilling Profile Generator",
+    image: "/Bore-Profile-Automation.png",
+    problem: "Generating bore profiles for fiber network directional drilling required days of manual drafting, creating bottlenecks in project timelines and introducing human error.",
+    solution: "Developed a fully automated desktop application that reads spatial waypoints from an interactive map, processes elevation models, calculates bore depth and slope, and generates production-ready 2D and 3D elevation profiles with configurable running lines and break points.",
+    impact: ["Processing time cut from days to minutes", "Eliminated manual drafting errors", "Deployed across the telecom engineering team at Olsson"],
     tech: ["Python", "C#", "ArcGIS Pro", "SQL Server", ".NET"],
     color: "var(--accent-orange)",
   },
@@ -26,16 +51,18 @@ const projects = [
     icon: "🛠️",
     title: "ArcGIS Automation Suite",
     subtitle: "Custom Python Geoprocessing Toolboxes",
-    problem: "Complex fiber network design workflows required repetitive manual GIS operations, slowing down engineers and creating inconsistencies.",
+    image: null,
+    problem: "Complex fiber network design workflows required repetitive manual GIS operations, slowing down engineers and creating inconsistencies across projects.",
     solution: "Developed a suite of custom Python geoprocessing toolboxes for ArcGIS Pro that automate routing analysis, cost estimation, and network design workflows.",
     impact: ["90% reduction in manual processing steps", "Accelerated fiber network design timelines", "Improved cost estimation accuracy"],
     tech: ["Python", "ArcGIS Pro", "Geoprocessing", "Spatial Analysis", "NetworkX"],
-    color: "var(--accent-cyan, #06B6D4)",
+    color: "var(--accent-blue)",
   },
   {
     icon: "🗺️",
     title: "NOx Emissions Analysis",
     subtitle: "MS Thesis — Spatiotemporal Remote Sensing",
+    image: null,
     problem: "Limited understanding of spatiotemporal patterns of NOx emissions from U.S. cement plants and their environmental justice implications.",
     solution: "Used TROPOMI satellite data to perform spatiotemporal hotspot analysis of NOx emissions, correlating emission patterns with population demographics and environmental justice indicators.",
     impact: ["Full MS thesis — GPA 4.00", "Remote sensing analysis of all U.S. cement plants", "Environmental justice exposure analysis for affected populations"],
@@ -46,6 +73,7 @@ const projects = [
     icon: "⚖️",
     title: "Omaha Spatial Justice Project",
     subtitle: "Historical GIS & Urban Analysis",
+    image: null,
     problem: "Historical patterns of racial exclusion in Omaha real estate were undocumented spatially, making it difficult to understand the geographic scope of discriminatory practices.",
     solution: "Digitized historical land parcels from archival documents and aerial photography, georeferenced historical maps, and built a spatial database revealing redlining and racial covenant patterns.",
     impact: ["Revealed spatial patterns of racial exclusion", "Contributed to urban spatial justice research", "Accurate historical parcel database for Omaha"],
@@ -80,6 +108,25 @@ export default function Projects() {
                 ))}
               </div>
             </div>
+
+            {p.image && (
+              <div className={styles.screenshotWrap}>
+                <Image
+                  src={p.image}
+                  alt={`${p.title} screenshot`}
+                  width={1200}
+                  height={700}
+                  className={styles.screenshot}
+                  style={{ objectFit: 'cover', objectPosition: 'top' }}
+                />
+                <div className={styles.screenshotBar}>
+                  <span className={styles.screenshotDot} />
+                  <span className={styles.screenshotDot} />
+                  <span className={styles.screenshotDot} />
+                  <span className={styles.screenshotLabel}>{p.title}</span>
+                </div>
+              </div>
+            )}
 
             <div className={styles.cardBody}>
               <div className={styles.block}>

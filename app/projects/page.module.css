@@ -67,6 +67,8 @@
 .card:nth-child(3) { animation-delay: 0.15s; }
 .card:nth-child(4) { animation-delay: 0.2s; }
 .card:nth-child(5) { animation-delay: 0.25s; }
+.card:nth-child(6) { animation-delay: 0.3s; }
+.card:nth-child(7) { animation-delay: 0.35s; }
 
 .card:hover {
   transform: translateX(4px);
@@ -116,6 +118,50 @@
   border-radius: 4px;
   padding: 3px 9px;
   color: var(--text-secondary);
+}
+
+/* ─── Screenshot ─── */
+.screenshotWrap {
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 22px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.screenshotBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--paper-dark);
+  border-top: 1px solid var(--border-light);
+  padding: 7px 12px;
+}
+
+.screenshotDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--border-dark);
+  flex-shrink: 0;
+}
+.screenshotDot:nth-child(1) { background: #ff5f57; }
+.screenshotDot:nth-child(2) { background: #febc2e; }
+.screenshotDot:nth-child(3) { background: #28c840; }
+
+.screenshotLabel {
+  font-size: 0.72em;
+  color: var(--text-muted);
+  margin-left: 6px;
+}
+
+.screenshot {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: top;
 }
 
 /* ─── Card Body ─── */
