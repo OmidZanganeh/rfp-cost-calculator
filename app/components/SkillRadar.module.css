@@ -6,6 +6,16 @@
   justify-content: center;
 }
 
+.wrap.compact {
+  justify-content: center;
+  gap: 0;
+}
+
+.wrap.compact .svg {
+  width: 260px;
+  height: 260px;
+}
+
 .svg {
   width: 320px;
   height: 320px;

@@ -18,8 +18,11 @@ const LIFE = [
   { label: 'Other',   pct: 10, color: '#c8c4bc' },
 ];
 
-const R = 112;
-const CX = 160; const CY = 160;
+const R_FULL = 112;
+const CX_FULL = 160; const CY_FULL = 160;
+
+const R_COMPACT = 52;
+const CX_COMPACT = 115; const CY_COMPACT = 115;
 
 function toRad(deg: number) { return (deg * Math.PI) / 180; }
 
@@ -32,20 +35,27 @@ function buildConic() {
   }).join(', ');
 }
 
-export default function HobbiesSection() {
+type Props = { compact?: boolean };
+
+export default function HobbiesSection({ compact = false }: Props) {
   const conic = buildConic();
+  const R = compact ? R_COMPACT : R_FULL;
+  const CX = compact ? CX_COMPACT : CX_FULL;
+  const CY = compact ? CY_COMPACT : CY_FULL;
+  const bubbleScale = compact ? 0.48 : 1;
+  const bubbleSizes = HOBBIES.map(h => Math.round(h.size * bubbleScale));
 
   return (
-    <section className={styles.section}>
-      <h2 className={styles.sectionTitle}>Interests &amp; Balance</h2>
+    <section className={`${styles.section} ${compact ? styles.compact : ''}`}>
+      {!compact && <h2 className={styles.sectionTitle}>Interests &amp; Balance</h2>}
 
       <div className={styles.grid}>
         {/* ── Hobby Bubbles ── */}
         <div className={styles.bubblesWrap}>
           <p className={styles.subLabel}>Hobbies</p>
-          <div className={styles.bubblesContainer}>
+          <div className={`${styles.bubblesContainer} ${compact ? styles.bubblesCompact : ''}`}>
             {/* SVG connector lines */}
-            <svg className={styles.lines} viewBox="0 0 320 320">
+            <svg className={styles.lines} viewBox={compact ? '0 0 230 230' : '0 0 320 320'}>
               {HOBBIES.map((h, i) => {
                 const cx = CX + R * Math.cos(toRad(h.angle));
                 const cy = CY + R * Math.sin(toRad(h.angle));
@@ -64,12 +74,13 @@ export default function HobbiesSection() {
             </svg>
 
             {/* Center bubble */}
-            <div className={styles.centerBubble}>
+            <div className={`${styles.centerBubble} ${compact ? styles.centerCompact : ''}`}>
               <span>Hobbies</span>
             </div>
 
             {/* Hobby bubbles */}
             {HOBBIES.map((h, i) => {
+              const sz = bubbleSizes[i];
               const cx = CX + R * Math.cos(toRad(h.angle));
               const cy = CY + R * Math.sin(toRad(h.angle));
               return (
@@ -77,10 +88,10 @@ export default function HobbiesSection() {
                   key={i}
                   className={styles.hobbyBubble}
                   style={{
-                    width: h.size,
-                    height: h.size,
-                    left: cx - h.size / 2,
-                    top:  cy - h.size / 2,
+                    width: sz,
+                    height: sz,
+                    left: cx - sz / 2,
+                    top:  cy - sz / 2,
                     animationDelay: `${i * 0.25}s`,
                   }}
                 >
@@ -93,7 +104,7 @@ export default function HobbiesSection() {
         </div>
 
         {/* ── Life Balance Donut ── */}
-        <div className={styles.donutWrap}>
+        <div className={`${styles.donutWrap} ${compact ? styles.donutCompact : ''}`}>
           <p className={styles.subLabel}>Life Balance</p>
           <div className={styles.donutChart} style={{ background: `conic-gradient(${conic})` }}>
             <div className={styles.donutHole}>

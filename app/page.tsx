@@ -13,7 +13,7 @@ import GameHub from "./components/GameHub";
 import GithubHeatmap from "./components/GithubHeatmap";
 import VisitorCounter from "./components/VisitorCounter";
 import SkillRadar from "./components/SkillRadar";
-import HobbiesSidePanel from "./components/HobbiesSidePanel";
+import HobbiesSection from "./components/HobbiesSection";
 
 export default function Resume() {
   const [gameOpen, setGameOpen] = useState(false);
@@ -265,6 +265,24 @@ export default function Resume() {
             </div>
           </section>
 
+          {/* Tool Tags */}
+          <section>
+            <h2 className={styles.sectionTitle}>Tools & Platforms</h2>
+            <div className={styles.tags}>
+              {["ArcGIS Pro", "ArcGIS Online", "ArcGIS Enterprise", "QGIS", "Google Earth Engine",
+                "Azure AI Foundry", "Google AI Studio", "SQL Server", "Tableau",
+                "AutoCAD", "GitHub Copilot", "Microsoft Azure"].map(s => (
+                <span key={s} className={styles.tag}>{s}</span>
+              ))}
+            </div>
+          </section>
+
+          {/* Skills at a Glance (spider web only) */}
+          <section>
+            <h2 className={styles.sectionTitle}>Skills at a Glance</h2>
+            <SkillRadar compact />
+          </section>
+
           {/* Skill Bars */}
           <section>
             <h2 className={styles.sectionTitle}>Coding Skills</h2>
@@ -278,19 +296,7 @@ export default function Resume() {
 
           {/* Hobbies & Life Balance */}
           <section>
-            <HobbiesSidePanel />
-          </section>
-
-          {/* Tool Tags */}
-          <section>
-            <h2 className={styles.sectionTitle}>Tools & Platforms</h2>
-            <div className={styles.tags}>
-              {["ArcGIS Pro", "ArcGIS Online", "ArcGIS Enterprise", "QGIS", "Google Earth Engine",
-                "Azure AI Foundry", "Google AI Studio", "SQL Server", "Tableau",
-                "AutoCAD", "GitHub Copilot", "Microsoft Azure"].map(s => (
-                <span key={s} className={styles.tag}>{s}</span>
-              ))}
-            </div>
+            <HobbiesSection compact />
           </section>
 
           {/* Languages */}
@@ -304,14 +310,6 @@ export default function Resume() {
 
         </aside>
       </div>
-
-      {/* ══════════════════════════════════════
-          SKILL RADAR
-      ══════════════════════════════════════ */}
-      <section className={styles.radarSection}>
-        <h2 className={styles.sectionTitle}>Skills at a Glance</h2>
-        <SkillRadar />
-      </section>
 
       {/* ══════════════════════════════════════
           GITHUB ACTIVITY (hidden — uncomment to restore)

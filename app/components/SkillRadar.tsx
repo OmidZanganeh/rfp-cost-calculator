@@ -48,7 +48,9 @@ function labelPos(angle: number) {
   return { x: p.x, y: p.y, anchor };
 }
 
-export default function SkillRadar() {
+type Props = { compact?: boolean };
+
+export default function SkillRadar({ compact = false }: Props) {
   const [progress, setProgress] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -78,7 +80,7 @@ export default function SkillRadar() {
   }, []);
 
   return (
-    <div ref={ref} className={styles.wrap}>
+    <div ref={ref} className={`${styles.wrap} ${compact ? styles.compact : ''}`}>
       <svg viewBox="0 0 400 400" className={styles.svg}>
         {/* Background grid rings */}
         {LEVELS.map((lvl, i) => (
@@ -137,7 +139,8 @@ export default function SkillRadar() {
         })}
       </svg>
 
-      {/* Legend */}
+      {/* Legend (hidden in compact/spider-only mode) */}
+      {!compact && (
       <div className={styles.legend}>
         {SKILLS.map((s, i) => (
           <div key={i} className={styles.legendItem}>
@@ -147,6 +150,7 @@ export default function SkillRadar() {
           </div>
         ))}
       </div>
+      )}
     </div>
   );
 }

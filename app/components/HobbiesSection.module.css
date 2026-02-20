@@ -2,6 +2,44 @@
   margin: 56px 0;
 }
 
+.section.compact {
+  margin: 0;
+}
+
+.compact .grid {
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.bubblesCompact {
+  width: 230px !important;
+  height: 230px !important;
+}
+
+.centerCompact {
+  width: 52px !important;
+  height: 52px !important;
+  left: calc(50% - 26px) !important;
+  top: calc(50% - 26px) !important;
+  font-size: 0.6em !important;
+}
+
+.compact .donutWrap {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.donutCompact .donutChart {
+  width: 120px;
+  height: 120px;
+}
+
+.donutCompact .legend {
+  max-width: 140px;
+}
+
 .sectionTitle {
   font-size: 1.5em;
   font-weight: 600;
