@@ -492,6 +492,15 @@
   color: #34d399;
 }
 
+/* ─── Skill Radar Section ─── */
+.radarSection {
+  margin: 56px 0;
+  padding: 36px 44px;
+  background: var(--paper-light);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+}
+
 /* ─── Projects Section ─── */
 .projectsSection {
   margin-top: 60px;

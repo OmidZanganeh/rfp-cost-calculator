@@ -1,0 +1,103 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.svg {
+  width: 320px;
+  height: 320px;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+/* Background rings */
+.bgPoly {
+  fill: none;
+  stroke: var(--border-light);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+/* Axis lines */
+.axisLine {
+  stroke: var(--border-light);
+  stroke-width: 1;
+}
+
+/* Skill polygon */
+.skillPoly {
+  fill: rgba(59, 130, 246, 0.1);
+  stroke: var(--accent-blue);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  transition: fill 0.2s;
+}
+.skillPoly:hover {
+  fill: rgba(59, 130, 246, 0.18);
+}
+
+/* Dots on polygon vertices */
+.dot {
+  fill: var(--accent-blue);
+  stroke: var(--paper-bg);
+  stroke-width: 2;
+}
+
+/* Axis labels */
+.label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  fill: var(--text-secondary);
+}
+
+/* Value tips inside polygon */
+.valueTip {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  fill: var(--accent-blue);
+}
+
+/* ── Legend ── */
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 200px;
+  flex: 1;
+  max-width: 260px;
+}
+
+.legendItem {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.legendBar {
+  display: block;
+  height: 4px;
+  background: var(--accent-blue);
+  border-radius: 2px;
+  opacity: 0.6;
+  transition: width 0.8s ease;
+}
+
+.legendLabel {
+  font-size: 0.82em;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.legendVal {
+  font-size: 0.78em;
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 24px;
+  text-align: right;
+}

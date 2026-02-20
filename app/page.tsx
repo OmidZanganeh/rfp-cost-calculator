@@ -13,6 +13,7 @@ import GameHub from "./components/GameHub";
 import HobbiesSection from "./components/HobbiesSection";
 import GithubHeatmap from "./components/GithubHeatmap";
 import VisitorCounter from "./components/VisitorCounter";
+import SkillRadar from "./components/SkillRadar";
 
 export default function Resume() {
   const [gameOpen, setGameOpen] = useState(false);
@@ -298,6 +299,14 @@ export default function Resume() {
 
         </aside>
       </div>
+
+      {/* ══════════════════════════════════════
+          SKILL RADAR
+      ══════════════════════════════════════ */}
+      <section className={styles.radarSection}>
+        <h2 className={styles.sectionTitle}>Skills at a Glance</h2>
+        <SkillRadar />
+      </section>
 
       {/* ══════════════════════════════════════
           PROJECTS PREVIEW
