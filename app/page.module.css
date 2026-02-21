@@ -286,11 +286,15 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 360px;
+  grid-template-rows: auto auto;
   gap: 48px;
   align-items: start;
 }
 
-.mainCol { min-width: 0; }
+.mainCol {
+  min-width: 0;
+  grid-row: 1;
+}
 
 .sidebar {
   display: flex;
@@ -298,6 +302,14 @@
   gap: 32px;
   position: sticky;
   top: 24px;
+  grid-column: 2;
+  grid-row: 1 / -1;
+}
+
+.contactCol {
+  min-width: 0;
+  grid-column: 1;
+  grid-row: 2;
 }
 
 /* ─── Section Titles ─── */
@@ -640,77 +652,28 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── Responsive: different layout for desktop vs mobile ───
- * Sites get "two designs" by:
- * 1. Media queries: change layout at breakpoints (e.g. 768px tablet, 480px phone)
- * 2. Flexbox "order": reorder sections without changing HTML
- * 3. Grid/flex: switch from multi-column to single column
- * Breakpoints: 960px = tablet, 640px = phone, 480px = small phone
- */
-
-/* Tablet: single column, sidebar stacks below main */
+/* ─── Responsive ─── */
 @media (max-width: 960px) {
   .stats { grid-template-columns: repeat(2, 1fr); }
   .grid {
     grid-template-columns: 1fr;
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
+    grid-template-rows: auto;
   }
-  .sidebar { position: static; }
+  .mainCol { grid-row: auto; grid-column: auto; }
+  .sidebar { position: static; grid-column: auto; grid-row: auto; order: 2; }
+  .contactCol { grid-column: auto; grid-row: auto; order: 3; }
   .projectsGrid { grid-template-columns: 1fr 1fr; }
   .nowGrid { grid-template-columns: 1fr; }
 }
 
-/* Mobile: reorder so sidebar (Education, Skills) appears FIRST, then main content */
-@media (max-width: 960px) {
-  .mainCol { order: 2; }
-  .sidebar { order: 1; }
-}
-
-/* Phone: tighter layout, header stacks with avatar on top */
 @media (max-width: 640px) {
   .container { padding: 20px 18px 40px; }
   .name { font-size: 2em; }
-  .headerMain {
-    flex-direction: column-reverse;
-    align-items: center;
-    text-align: center;
-  }
-  .headerLeft { align-items: center; }
-  .availableBadge { margin: 0 auto; }
-  .contact {
-    justify-content: center;
-  }
-  .headerActions {
-    flex-direction: column;
-    width: 100%;
-    max-width: 280px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .headerActions a,
-  .headerActions .downloadBtn,
-  .headerActions .projectsBtn {
-    width: 100%;
-    text-align: center;
-  }
-  .stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .stat { padding: 14px 12px; }
-  .statNum { font-size: 1.5em; }
+  .headerMain { flex-direction: column-reverse; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
   .projectsGrid { grid-template-columns: 1fr; }
   .nowGrid { grid-template-columns: 1fr; }
   .jobMeta { flex-direction: column; gap: 4px; }
+  .headerActions { flex-direction: column; }
   .aboutSection { padding: 24px 20px; }
-  .footerBottom { text-align: center; }
-  .footerBottom p { max-width: 100%; }
-}
-
-/* Small phone: single column stats, minimal padding */
-@media (max-width: 480px) {
-  .container { padding: 16px 14px 32px; }
-  .name { font-size: 1.65em; }
-  .stats { grid-template-columns: 1fr; }
-  .contact { flex-direction: column; align-items: center; gap: 8px; }
-  .sectionTitle { font-size: 1.25em; }
 }
